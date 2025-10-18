@@ -6,10 +6,11 @@ public class Parameter {
 
     public Parameter(String str){
         Delimiter dt = new Delimiter();
+        Splitter sp = new Splitter();
 
         this.delimiters = dt.findDelimiter(str);
         String numStr = dt.findNumbs(str);
-        //Delimiter 클래스를 통해 받아온 데이터를 가지고 문자열을 배열로 만들어줄 클래스가 필요
+        this.numbers = sp.splitStr(numStr,delimiters);
     }
     public String[] getNumbs(){
         return numbers;
