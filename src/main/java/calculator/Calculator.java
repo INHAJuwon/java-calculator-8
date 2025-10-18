@@ -2,10 +2,10 @@ package calculator;
 
 public class Calculator {
     public int calculate(String str){
-        // 구분된 문자열과 구분자를 저장해두는 Parameter 설정
-        // numbers= Parameter의 구분된 문자열
+        Parameter p = new Parameter(str);
+        String[] numbers = p.getNumbs();
 
-        //return sum(numbers);
+        return sum(numbers);
     }
     private int sum(String[] numbs) {
         if(numbs == null){
