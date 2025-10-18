@@ -2,8 +2,8 @@ package calculator;
 
 public class Calculator {
     public int calculate(String str){
-        Parameter p = new Parameter(str);
-        String[] numbers = p.getNumbs();
+        Parameter parameter = new Parameter(str);
+        String[] numbers = parameter.getNumbs();
 
         return sum(numbers);
     }
