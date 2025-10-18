@@ -5,8 +5,11 @@ public class Parameter {
     private final String delimiters;
 
     public Parameter(String str){
-        //Parameter는 값들을 관리하기 위함.
-        // 생성자를 통해서 구분된 문자열과, 구분자, 구분된 문자열 배열을 받아온다.
+        Delimiter dt = new Delimiter();
+
+        this.delimiters = dt.findDelimiter(str);
+        String numStr = dt.findNumbs(str);
+        //Delimiter 클래스를 통해 받아온 데이터를 가지고 문자열을 배열로 만들어줄 클래스가 필요
     }
     public String[] getNumbs(){
         return numbers;
