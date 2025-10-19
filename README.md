@@ -17,7 +17,7 @@
 
 **입출력**: Input.java와 Output.java를 통해 사용자 입력과 결과 출력을 담당하는 기본적인 시스템을 구축하고 Application.java에서 연결
 
-**문자열 파싱**: Delimiter.java로 구분자를 추출하고, Splitter.java로 문자열을 배열로 분리한 후, Parameter.java에서 이 두 과정을 조합하여 숫자 배열을 생성
+**문자열 파싱**: Delimiter.java로 구분자를 추출하고, Splitter.java로 문자열을 배열로 분리
 
 **계산 및 검증**: Calculator.java에서 덧셈을 수행하고, 숫자 형식 및 음수 값에 대한 예외 처리 로직을 구현
 
@@ -32,8 +32,6 @@
 
 **Delimiter.java** |	구분자 추출,	기본 및 사용자 정의 구분자를 추출하고 정규 표현식 문자열로 반환합니다.
 
-**Parameter.java** |	파싱 과정을 통합하여 최종 숫자 배열과 구분자를 관리합니다.
-
 **Splitter.java** |	문자열 분리	문자열과 구분자 정규식을 받아 문자열 배열로 분리합니다.
 
 **Input.java** |	입력 처리	콘솔에서 사용자 문자열을 읽어옵니다.
@@ -46,9 +44,7 @@
 1. 시작: Application.main() 실행.
 2. 입력: Input 객체 생성 및 콘솔을 통해 사용자 문자열 입력(str).
 3. 계산 호출: Calculator.calculate(str) 호출.
-4. 파싱: Calculator 내부에서 Parameter(str) 객체 생성.
- - Parameter는 Delimiter를 통해 최종 구분자 정규식과 숫자 문자열을 얻습니다.
- - Parameter는 Splitter를 통해 숫자 문자열을 배열(numbers)로 분리합니다.
+4. 파싱: Calculator 내부에서 Delimiter 객체와 Splitter 객체 생성을 통해 파싱.
 5. 합산: Calculator.sum(numbers) 메서드가 배열을 순회하며 합산.
 6. 검증: 순회 중 음수(checkNegative) 또는 숫자가 아닌 값(checkStr)이 발견되면 예외 발생 후 프로그램 종료.
 7. 종료: 최종 합계(output)를 Output.printResult()로 출력하고 Console.close()로 자원을 해제하며 종료.
