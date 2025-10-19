@@ -17,7 +17,7 @@
 
 **입출력**: Input.java와 Output.java를 통해 사용자 입력과 결과 출력을 담당하는 기본적인 시스템을 구축하고 Application.java에서 연결
 
-**문자열 파싱**: Delimiter.java로 구분자를 추출하고, Splitter.java로 문자열을 배열로 분리한 후, Parameter.java에서 관리
+**문자열 파싱**: Delimiter.java로 구분자를 추출하고 Splitter.java로 문자열을 배열로 분리를 Parser.java에서 수행한 후, Parameter.java에서 관리
 
 **계산 및 검증**: Calculator.java에서 덧셈을 수행하고, 숫자 형식 및 음수 값에 대한 예외 처리 로직을 구현
 
@@ -32,15 +32,17 @@
 
 **Parameter.java** | 구분된 숫자 문자열과 구분자를 관리하는 DTO
 
+**Parser.java** | 입력받은 문자열을 Parameter Dto로 변환합니다.
+
 **Delimiter.java** |	구분자 추출,	기본 및 사용자 정의 구분자를 추출하고 정규 표현식 문자열로 반환합니다.
 
-**Splitter.java** |	문자열 분리	문자열과 구분자 정규식을 받아 문자열 배열로 분리합니다.
+**Splitter.java** |	문자열 분리 문자열과 구분자 정규식을 받아 문자열 배열로 분리합니다.
 
-**Input.java** |	입력 처리	콘솔에서 입력값을 입력받습니다.
+**Input.java** |	입력 처리 콘솔에서 입력값을 입력받습니다.
 
 **InputValue.java** | 입력값을 관리하는 DTO
 
-**Output.java** |	출력 처리	최종 계산 결과를 콘솔에 출력합니다.
+**Output.java** |	출력 처리 최종 계산 결과를 콘솔에 출력합니다.
 
 
 ## 개발환경
