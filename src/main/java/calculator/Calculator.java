@@ -1,41 +1,41 @@
 package calculator;
 
 public class Calculator {
-    public int calculate(String str){
-        Parameter parameter = new Parameter(str);
-        String[] numbers = parameter.getNumbs();
-
-        return sum(numbers);
+    public int calculate(Parameter parameter) {
+        return sum(parameter.getNumbers());
     }
-    private int sum(String[] numbs) {
-        if(numbs == null){
+
+    private int sum(String[] numbers) {
+        if (numbers == null) {
             return 0;
         }
 
         int sum = 0;
 
-        for (String s : numbs) {
-            int add = checkStr(s);
+        for (String space : numbers) {
+            int add = checkString(space);
             checkNegative(add);
             sum += add;
         }
 
         return sum;
     }
-    private int checkStr(String s){
-        try{
-            return blankOrEmpty(s);
-        }catch(NumberFormatException e){
+
+    private int checkString(String space) {
+        try {
+            return blankOrEmpty(space);
+        } catch (NumberFormatException error) {
             throw new IllegalArgumentException("입력이 숫자가 아님");
         }
     }
-    private int blankOrEmpty(String str){
-        if(str.isBlank())
-            return 0;
-        return Integer.parseInt(str);
+
+    private int blankOrEmpty(String input) {
+        if (input.isBlank()) return 0;
+        return Integer.parseInt(input);
     }
-    private void checkNegative(int i){
-        if(i < 0){
+
+    private void checkNegative(int integer) {
+        if (integer < 0) {
             throw new IllegalArgumentException("음수");
         }
     }

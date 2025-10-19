@@ -8,45 +8,52 @@ public class Delimiter {
     private final String BASE = ",|:";
     private final int BASE_LENGTH = 2;
 
-    public String findDelimiter(String str){
+    public String findDelimiter(String input) {
         String base = BASE;
-        checkNull(str);
+        checkNull(input);
 
-        while(customDelimiterPre(str) && customDelimiterSuf(str)){
-            String custom=customDelimiter(str);
-            base = addBase(base,custom);
-            str=subString(str);
+        while (customDelimiterPrefix(input) && customDelimiterSuffix(input)) {
+            String custom = customDelimiter(input);
+            base = addBase(base, custom);
+            input = subString(input);
         }
 
         return base;
     }
-    public String findNumbs(String str){
-        checkNull(str);
 
-        while(customDelimiterPre(str) && customDelimiterSuf(str)){
-            str = subString(str);
+    public String findNumbers(String input) {
+        checkNull(input);
+
+        while (customDelimiterPrefix(input) && customDelimiterSuffix(input)) {
+            input = subString(input);
         }
-        return str;
+        return input;
     }
-    private String addBase(String base,String custom){
+
+    private String addBase(String base, String custom) {
         return base + "|" + Pattern.quote(custom);
     }
-    private String customDelimiter(String str){
-        int end=str.indexOf(SUFFIX);
-        return str.substring(BASE_LENGTH,end);
+
+    private String customDelimiter(String input) {
+        int end = input.indexOf(SUFFIX);
+        return input.substring(BASE_LENGTH, end);
     }
-    private void checkNull(String str){
-        if(str == null){
+
+    private void checkNull(String input) {
+        if (input == null) {
             throw new IllegalArgumentException();
         }
     }
-    private boolean customDelimiterPre(String str){
-        return str.startsWith(PREFIX);
+
+    private boolean customDelimiterPrefix(String input) {
+        return input.startsWith(PREFIX);
     }
-    private boolean customDelimiterSuf(String str){
-        return str.contains(SUFFIX);
+
+    private boolean customDelimiterSuffix(String input) {
+        return input.contains(SUFFIX);
     }
-    private String subString(String str){
-        return str.substring(str.indexOf(SUFFIX) + 2);
+
+    private String subString(String input) {
+        return input.substring(input.indexOf(SUFFIX) + 2);
     }
 }
